@@ -32,28 +32,29 @@ namespace Common.Settings
         private void InitializeComponent()
         {
             this.pnlButtons = new System.Windows.Forms.Panel();
+            this.btnApply = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.pnlData = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabCommon = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pnlMsgSendKey = new System.Windows.Forms.Panel();
-            this.rbSendByCtrlEnter = new System.Windows.Forms.RadioButton();
-            this.rbSendByCtrl = new System.Windows.Forms.RadioButton();
-            this.btnApply = new System.Windows.Forms.Button();
-            this.lblServerIP = new System.Windows.Forms.Label();
-            this.txtServerIP = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlMsgSendKey = new System.Windows.Forms.Panel();
+            this.rbSendByCtrl = new System.Windows.Forms.RadioButton();
+            this.rbSendByCtrlEnter = new System.Windows.Forms.RadioButton();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtServerIP = new System.Windows.Forms.TextBox();
+            this.lblServerIP = new System.Windows.Forms.Label();
+            this.txtChatServerPort = new System.Windows.Forms.TextBox();
             this.pnlButtons.SuspendLayout();
             this.pnlData.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tabCommon.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.pnlMsgSendKey.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlButtons
@@ -66,6 +67,33 @@ namespace Common.Settings
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(800, 58);
             this.pnlButtons.TabIndex = 0;
+            // 
+            // btnApply
+            // 
+            this.btnApply.Location = new System.Drawing.Point(592, 9);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(80, 36);
+            this.btnApply.TabIndex = 2;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(499, 12);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(77, 31);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(690, 11);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(81, 32);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // statusBar
             // 
@@ -84,24 +112,6 @@ namespace Common.Settings
             this.pnlData.Name = "pnlData";
             this.pnlData.Size = new System.Drawing.Size(800, 361);
             this.pnlData.TabIndex = 2;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(690, 11);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(81, 32);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(499, 12);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(77, 31);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // tabs
             // 
@@ -126,18 +136,21 @@ namespace Common.Settings
             this.tabCommon.Text = "Общее";
             this.tabCommon.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // txtLogin
             // 
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.txtServerIP);
-            this.tabPage2.Controls.Add(this.lblServerIP);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(754, 304);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Сеть";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.txtLogin.Location = new System.Drawing.Point(85, 128);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(96, 20);
+            this.txtLogin.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 131);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "UserLogin";
             // 
             // pnlMsgSendKey
             // 
@@ -148,6 +161,16 @@ namespace Common.Settings
             this.pnlMsgSendKey.Name = "pnlMsgSendKey";
             this.pnlMsgSendKey.Size = new System.Drawing.Size(157, 80);
             this.pnlMsgSendKey.TabIndex = 1;
+            // 
+            // rbSendByCtrl
+            // 
+            this.rbSendByCtrl.AutoSize = true;
+            this.rbSendByCtrl.Location = new System.Drawing.Point(33, 43);
+            this.rbSendByCtrl.Name = "rbSendByCtrl";
+            this.rbSendByCtrl.Size = new System.Drawing.Size(40, 17);
+            this.rbSendByCtrl.TabIndex = 2;
+            this.rbSendByCtrl.Text = "Ctrl";
+            this.rbSendByCtrl.UseVisualStyleBackColor = true;
             // 
             // rbSendByCtrlEnter
             // 
@@ -161,24 +184,35 @@ namespace Common.Settings
             this.rbSendByCtrlEnter.Text = "Ctrl+Enter";
             this.rbSendByCtrlEnter.UseVisualStyleBackColor = true;
             // 
-            // rbSendByCtrl
+            // tabPage2
             // 
-            this.rbSendByCtrl.AutoSize = true;
-            this.rbSendByCtrl.Location = new System.Drawing.Point(33, 43);
-            this.rbSendByCtrl.Name = "rbSendByCtrl";
-            this.rbSendByCtrl.Size = new System.Drawing.Size(40, 17);
-            this.rbSendByCtrl.TabIndex = 2;
-            this.rbSendByCtrl.Text = "Ctrl";
-            this.rbSendByCtrl.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.txtChatServerPort);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.txtServerIP);
+            this.tabPage2.Controls.Add(this.lblServerIP);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(754, 304);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Сеть";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnApply
+            // label2
             // 
-            this.btnApply.Location = new System.Drawing.Point(592, 9);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(80, 36);
-            this.btnApply.TabIndex = 2;
-            this.btnApply.Text = "Apply";
-            this.btnApply.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Server port";
+            // 
+            // txtServerIP
+            // 
+            this.txtServerIP.Location = new System.Drawing.Point(71, 25);
+            this.txtServerIP.Name = "txtServerIP";
+            this.txtServerIP.Size = new System.Drawing.Size(116, 20);
+            this.txtServerIP.TabIndex = 1;
             // 
             // lblServerIP
             // 
@@ -189,37 +223,12 @@ namespace Common.Settings
             this.lblServerIP.TabIndex = 0;
             this.lblServerIP.Text = "Server IP";
             // 
-            // txtServerIP
+            // txtChatServerPort
             // 
-            this.txtServerIP.Location = new System.Drawing.Point(71, 25);
-            this.txtServerIP.Name = "txtServerIP";
-            this.txtServerIP.Size = new System.Drawing.Size(116, 20);
-            this.txtServerIP.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 131);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "UserLogin";
-            // 
-            // txtLogin
-            // 
-            this.txtLogin.Location = new System.Drawing.Point(85, 128);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(96, 20);
-            this.txtLogin.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Server port";
+            this.txtChatServerPort.Location = new System.Drawing.Point(72, 63);
+            this.txtChatServerPort.Name = "txtChatServerPort";
+            this.txtChatServerPort.Size = new System.Drawing.Size(100, 20);
+            this.txtChatServerPort.TabIndex = 3;
             // 
             // frmSettings
             // 
@@ -236,10 +245,10 @@ namespace Common.Settings
             this.tabs.ResumeLayout(false);
             this.tabCommon.ResumeLayout(false);
             this.tabCommon.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.pnlMsgSendKey.ResumeLayout(false);
             this.pnlMsgSendKey.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +272,6 @@ namespace Common.Settings
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private TextBox txtChatServerPort;
     }
 }

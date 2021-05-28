@@ -37,6 +37,7 @@ namespace Client.UI
             AppendTextToChat(txtChat, txtUserMessage.Text, Color.Blue, font);
 
         }
+
         private void AppendTextToChat( RichTextBox rtb, string text, Color color, Font font,  bool isNewLine = true)
         {
             rtb.SuspendLayout();

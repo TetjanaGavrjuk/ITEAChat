@@ -15,11 +15,11 @@ namespace Common.AppSettings
     //Класс, определяющий какие настройки есть в программе
     public class PropsFields
     {
-        public string Login;
-        public int UserID;
+        public string Login="Anonim";
+        public int UserID=-1;
 
-        public string ServerIP;
-        public int ServerPort;
+        public string ServerIP="0.0.0.0";
+        public int ServerPort=0;
         public MsgSendKey MsgSendKey= MsgSendKey.CtrlEnter; 
 
         public String XMLFileName;
@@ -38,7 +38,7 @@ namespace Common.AppSettings
             Fields = new PropsFields();
         }
 
-        // Сохраняем ВСЕ настройки в конфигурационный файл
+        // Загружаем все настройки из конфигурационного файла
         public static void Load()
         {
             ReadXml();
@@ -50,7 +50,7 @@ namespace Common.AppSettings
             WriteXml();
         }
 
-        //Запись настроек в файл
+        //Запись настроек в Xml-файл
         private static void WriteXml()
         {
             XmlSerializer ser = new XmlSerializer(typeof(PropsFields));
@@ -59,7 +59,7 @@ namespace Common.AppSettings
             writer.Close();
         }
 
-        //Чтение настроек из файла
+        //Чтение настроек из Xml-файла
         private static void ReadXml()
         {
             if (File.Exists(CnfgFullFileName))

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Common;
+using Common.AppSettings;
 
 namespace Client.UI
 {
@@ -21,7 +22,7 @@ namespace Client.UI
 
         private void frmChatRoom_Load(object sender, EventArgs e)
         {
-            txtUserName.Text = Globals.CurrUser.Name;
+            txtUserName.Text = Globals.CurrUser.Login;
         }
 
        // Добавить к чату- сообщение, введенное пользователем
@@ -51,5 +52,12 @@ namespace Client.UI
             rtb.ScrollToCaret();
             rtb.ResumeLayout();
         }
+
+        private void mnuSettings_Click(object sender, EventArgs e)
+        {
+            frmSettings frmSettings = new frmSettings();
+            frmSettings.ShowDialog(this);
+        }
+
     }
 }

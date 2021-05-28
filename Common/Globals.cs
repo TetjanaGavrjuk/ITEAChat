@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Common.SimpleTypes;
 using Common.Types;
-using Common.Settings;
+using Common.AppSettings;
 
 namespace Common
 {
@@ -19,26 +19,17 @@ namespace Common
         // Текущее соединение с сервером
         public static Connection CurrConnection;
 
-        // Настройки для приложения
-        public static AppSettings AppSettings;
-
         static Globals()
         {
             CurrUser = new User();
             CurrConnection = new Connection();
-            AppSettings = new AppSettings();
+            FillFromSettings();
         }
 
-        public static void Load() 
+        public static void FillFromSettings() 
         {
-            AppSettings.Load();
-            AppSettings.Fill(CurrUser);
-            AppSettings.Fill(CurrConnection);
-        }
-
-        public static void SaveLogin()
-        {
-            AppSettings.SaveLogin(CurrUser);
+            CurrUser.FillFromSettings();
+            CurrConnection.FillFromSettings();
         }
 
     }

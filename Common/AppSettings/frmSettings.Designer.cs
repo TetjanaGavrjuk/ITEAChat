@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Common.Settings
+namespace Common.AppSettings
 {
     partial class frmSettings
     {
@@ -34,7 +34,6 @@ namespace Common.Settings
             this.pnlButtons = new System.Windows.Forms.Panel();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.pnlData = new System.Windows.Forms.Panel();
             this.tabs = new System.Windows.Forms.TabControl();
@@ -48,7 +47,7 @@ namespace Common.Settings
             this.label2 = new System.Windows.Forms.Label();
             this.txtServerIP = new System.Windows.Forms.TextBox();
             this.lblServerIP = new System.Windows.Forms.Label();
-            this.txtChatServerPort = new System.Windows.Forms.TextBox();
+            this.txtServerPort = new System.Windows.Forms.TextBox();
             this.pnlButtons.SuspendLayout();
             this.pnlData.SuspendLayout();
             this.tabs.SuspendLayout();
@@ -62,7 +61,6 @@ namespace Common.Settings
             this.pnlButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlButtons.Controls.Add(this.btnApply);
             this.pnlButtons.Controls.Add(this.btnCancel);
-            this.pnlButtons.Controls.Add(this.btnSave);
             this.pnlButtons.Location = new System.Drawing.Point(0, 367);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(800, 58);
@@ -76,6 +74,7 @@ namespace Common.Settings
             this.btnApply.TabIndex = 2;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // btnCancel
             // 
@@ -85,15 +84,6 @@ namespace Common.Settings
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(690, 11);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(81, 32);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // statusBar
             // 
@@ -140,7 +130,7 @@ namespace Common.Settings
             // 
             this.txtLogin.Location = new System.Drawing.Point(85, 128);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(96, 20);
+            this.txtLogin.Size = new System.Drawing.Size(189, 20);
             this.txtLogin.TabIndex = 3;
             // 
             // label1
@@ -186,7 +176,7 @@ namespace Common.Settings
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.txtChatServerPort);
+            this.tabPage2.Controls.Add(this.txtServerPort);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.txtServerIP);
             this.tabPage2.Controls.Add(this.lblServerIP);
@@ -223,12 +213,12 @@ namespace Common.Settings
             this.lblServerIP.TabIndex = 0;
             this.lblServerIP.Text = "Server IP";
             // 
-            // txtChatServerPort
+            // txtServerPort
             // 
-            this.txtChatServerPort.Location = new System.Drawing.Point(72, 63);
-            this.txtChatServerPort.Name = "txtChatServerPort";
-            this.txtChatServerPort.Size = new System.Drawing.Size(100, 20);
-            this.txtChatServerPort.TabIndex = 3;
+            this.txtServerPort.Location = new System.Drawing.Point(72, 63);
+            this.txtServerPort.Name = "txtServerPort";
+            this.txtServerPort.Size = new System.Drawing.Size(115, 20);
+            this.txtServerPort.TabIndex = 3;
             // 
             // frmSettings
             // 
@@ -240,6 +230,7 @@ namespace Common.Settings
             this.Controls.Add(this.pnlButtons);
             this.Name = "frmSettings";
             this.Text = "Настройки";
+            this.Load += new System.EventHandler(this.frmSettings_Load);
             this.pnlButtons.ResumeLayout(false);
             this.pnlData.ResumeLayout(false);
             this.tabs.ResumeLayout(false);
@@ -259,7 +250,6 @@ namespace Common.Settings
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.Panel pnlData;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage tabCommon;
         private System.Windows.Forms.TabPage tabPage2;
@@ -272,6 +262,6 @@ namespace Common.Settings
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private TextBox txtChatServerPort;
+        private TextBox txtServerPort;
     }
 }

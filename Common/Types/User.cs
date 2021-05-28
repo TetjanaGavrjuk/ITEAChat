@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.AppSettings;
 
 namespace Common.Types
 {
@@ -10,19 +11,19 @@ namespace Common.Types
     {
         public long ID;
         public string Name;
+        public string Login;
         public string IP; // ???? 
 
         public User() {
             ID = -1;
-            Name = "Anonim";
+            Name = "Anonim U.S.";
+            Login = "Anonim";
         }
 
         // Заполнить данные из последних сохраненных сведений
-        public void FillByLastValue()
+        public void FillFromSettings()
         {
-          // получаем эти сведения из внешних источников, например из ini/xml/реестра
-          // наверное это будет тесно связано с настройками AppSettings
-          // ...
+            this.Login = Settings.Fields.Login;
         }
 
     }

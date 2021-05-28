@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Common;  // подключаем проект 'Common', который будет использоваться и для Клинта и для Сервера
+// подключаем проект 'Common', который будет использоваться и для Клиeнта и для Сервера
+using Common;  
+using Common.AppSettings;
+
 using Client.UI;
-using Common.Settings;
 
 namespace Client
 {
@@ -33,11 +35,11 @@ namespace Client
             // Пройти авторизацию
             if (  IsAutorised() ) 
             {
-                //Сохранить введенный логин в конфигурационном файле
-                Settings.Save(Globals.CurrUser);
-
                 // Войти в чат-рум
                 Application.Run(new frmChatRoom());
+
+                //сохраняем настройки
+                Settings.Save();
             }
         }
 

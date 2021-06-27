@@ -12,9 +12,13 @@ using Common.Types;
 
 namespace Common.AppSettings
 {
+    //public delegate void OnSettingsChangedHandler();
+    public delegate void OnSettingsChangedHandler();
+
     //Класс, определяющий какие настройки есть в программе
     public class PropsFields
     {
+
         public string Login="Anonim";
         public int UserID=-1;
 
@@ -27,6 +31,9 @@ namespace Common.AppSettings
 
     public static class Settings 
     {
+
+        public static event OnSettingsChangedHandler IsChanged;
+
         public static PropsFields Fields;
 
         // полное имя файла настроек
@@ -42,12 +49,14 @@ namespace Common.AppSettings
         public static void Load()
         {
             ReadXml();
+            IsChanged?.Invoke();
         }
 
         // Сохраняем ВСЕ настройки в конфигурационный файл
         public static void Save()
         {
             WriteXml();
+            IsChanged?.Invoke();
         }
 
         //Запись настроек в Xml-файл
@@ -71,7 +80,7 @@ namespace Common.AppSettings
             }
             else 
             {
-                //throw "Не найден файл конфигурации!";
+                throw new Exception("Не найден файл конфигурации!");
             }
         }
 

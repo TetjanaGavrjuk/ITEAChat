@@ -31,6 +31,8 @@ namespace Client
 
             // Подгрузить настройки из файла конфигурации
             Settings.Load();
+            Globals.FillFromSettings();
+            Settings.IsChanged += Globals.FillFromSettings;
 
             // Пройти авторизацию
             if (  IsAutorised() ) 

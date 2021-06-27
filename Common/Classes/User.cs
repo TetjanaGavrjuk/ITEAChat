@@ -12,7 +12,6 @@ namespace Common.Types
         public long ID;
         public string Name;
         public string Login;
-        public string IP; // ???? 
 
         public User() {
             ID = -1;

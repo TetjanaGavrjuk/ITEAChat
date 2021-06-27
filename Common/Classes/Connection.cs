@@ -10,8 +10,13 @@ namespace Common.Types
     public class Connection
     {
         public string ServerIP;
-        public string ClientIP;
         public int ServerPort;
+
+        public string ClientIP;
+
+        public string ServerIPWithPort {
+            get { return (ServerIP + ':' + ServerPort.ToString()); }
+}
 
         //...
 
@@ -22,9 +27,6 @@ namespace Common.Types
         // Заполнить данные из последних сохраненных сведений
         public void FillFromSettings()
         {
-            // получаем эти сведения из внешних источников, например из ini/xml/реестра
-            // наверное это будет тесно связано с настройками AppSettings
-            // ...
             ServerIP = Settings.Fields.ServerIP;
             ServerPort = Settings.Fields.ServerPort;
         }
@@ -32,9 +34,10 @@ namespace Common.Types
         public void TryConnect()
         {
             if (ServerIP.Length < 1) {
-               // throw InvalidOperationException;
+                throw new Exception("Невозможно установить соединение с Сервером!");
             };
 
         }
+
     }
 }

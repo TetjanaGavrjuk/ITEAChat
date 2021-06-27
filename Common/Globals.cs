@@ -23,7 +23,6 @@ namespace Common
         {
             CurrUser = new User();
             CurrConnection = new Connection();
-            FillFromSettings();
         }
 
         public static void FillFromSettings() 
@@ -32,5 +31,9 @@ namespace Common
             CurrConnection.FillFromSettings();
         }
 
+        public static void OnSettingsChanged()
+        {
+            FillFromSettings();
+        }
     }
 }

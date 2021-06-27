@@ -40,20 +40,24 @@ namespace Common.AppSettings
             this.tabCommon = new System.Windows.Forms.TabPage();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlMsgSendKey = new System.Windows.Forms.Panel();
-            this.rbSendByCtrl = new System.Windows.Forms.RadioButton();
-            this.rbSendByCtrlEnter = new System.Windows.Forms.RadioButton();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabNet = new System.Windows.Forms.TabPage();
+            this.btnFillByLocalIP = new System.Windows.Forms.Button();
+            this.txtServerPort = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtServerIP = new System.Windows.Forms.TextBox();
             this.lblServerIP = new System.Windows.Forms.Label();
-            this.txtServerPort = new System.Windows.Forms.TextBox();
+            this.tabMisc = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlButtons.SuspendLayout();
             this.pnlData.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tabCommon.SuspendLayout();
-            this.pnlMsgSendKey.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabNet.SuspendLayout();
+            this.tabMisc.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlButtons
@@ -61,7 +65,7 @@ namespace Common.AppSettings
             this.pnlButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlButtons.Controls.Add(this.btnApply);
             this.pnlButtons.Controls.Add(this.btnCancel);
-            this.pnlButtons.Location = new System.Drawing.Point(0, 367);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 238);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(800, 58);
             this.pnlButtons.TabIndex = 0;
@@ -84,12 +88,13 @@ namespace Common.AppSettings
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // statusBar
             // 
-            this.statusBar.Location = new System.Drawing.Point(0, 428);
+            this.statusBar.Location = new System.Drawing.Point(0, 308);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(800, 22);
+            this.statusBar.Size = new System.Drawing.Size(822, 22);
             this.statusBar.TabIndex = 1;
             this.statusBar.Text = "statusStrip1";
             // 
@@ -100,35 +105,35 @@ namespace Common.AppSettings
             this.pnlData.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlData.Location = new System.Drawing.Point(0, 0);
             this.pnlData.Name = "pnlData";
-            this.pnlData.Size = new System.Drawing.Size(800, 361);
+            this.pnlData.Size = new System.Drawing.Size(822, 232);
             this.pnlData.TabIndex = 2;
             // 
             // tabs
             // 
             this.tabs.Controls.Add(this.tabCommon);
-            this.tabs.Controls.Add(this.tabPage2);
+            this.tabs.Controls.Add(this.tabNet);
+            this.tabs.Controls.Add(this.tabMisc);
             this.tabs.Location = new System.Drawing.Point(20, 13);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(762, 330);
+            this.tabs.Size = new System.Drawing.Size(762, 210);
             this.tabs.TabIndex = 0;
             // 
             // tabCommon
             // 
             this.tabCommon.Controls.Add(this.txtLogin);
             this.tabCommon.Controls.Add(this.label1);
-            this.tabCommon.Controls.Add(this.pnlMsgSendKey);
             this.tabCommon.Location = new System.Drawing.Point(4, 22);
             this.tabCommon.Name = "tabCommon";
             this.tabCommon.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCommon.Size = new System.Drawing.Size(754, 304);
+            this.tabCommon.Size = new System.Drawing.Size(754, 184);
             this.tabCommon.TabIndex = 0;
             this.tabCommon.Text = "Общее";
             this.tabCommon.UseVisualStyleBackColor = true;
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(85, 128);
+            this.txtLogin.Location = new System.Drawing.Point(69, 31);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(189, 20);
             this.txtLogin.TabIndex = 3;
@@ -136,57 +141,43 @@ namespace Common.AppSettings
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 131);
+            this.label1.Location = new System.Drawing.Point(8, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "UserLogin";
             // 
-            // pnlMsgSendKey
+            // tabNet
             // 
-            this.pnlMsgSendKey.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlMsgSendKey.Controls.Add(this.rbSendByCtrl);
-            this.pnlMsgSendKey.Controls.Add(this.rbSendByCtrlEnter);
-            this.pnlMsgSendKey.Location = new System.Drawing.Point(24, 33);
-            this.pnlMsgSendKey.Name = "pnlMsgSendKey";
-            this.pnlMsgSendKey.Size = new System.Drawing.Size(157, 80);
-            this.pnlMsgSendKey.TabIndex = 1;
+            this.tabNet.Controls.Add(this.btnFillByLocalIP);
+            this.tabNet.Controls.Add(this.txtServerPort);
+            this.tabNet.Controls.Add(this.label2);
+            this.tabNet.Controls.Add(this.txtServerIP);
+            this.tabNet.Controls.Add(this.lblServerIP);
+            this.tabNet.Location = new System.Drawing.Point(4, 22);
+            this.tabNet.Name = "tabNet";
+            this.tabNet.Padding = new System.Windows.Forms.Padding(3);
+            this.tabNet.Size = new System.Drawing.Size(754, 184);
+            this.tabNet.TabIndex = 1;
+            this.tabNet.Text = "Сеть";
+            this.tabNet.UseVisualStyleBackColor = true;
             // 
-            // rbSendByCtrl
+            // btnFillByLocalIP
             // 
-            this.rbSendByCtrl.AutoSize = true;
-            this.rbSendByCtrl.Location = new System.Drawing.Point(33, 43);
-            this.rbSendByCtrl.Name = "rbSendByCtrl";
-            this.rbSendByCtrl.Size = new System.Drawing.Size(40, 17);
-            this.rbSendByCtrl.TabIndex = 2;
-            this.rbSendByCtrl.Text = "Ctrl";
-            this.rbSendByCtrl.UseVisualStyleBackColor = true;
+            this.btnFillByLocalIP.Location = new System.Drawing.Point(203, 21);
+            this.btnFillByLocalIP.Name = "btnFillByLocalIP";
+            this.btnFillByLocalIP.Size = new System.Drawing.Size(83, 26);
+            this.btnFillByLocalIP.TabIndex = 4;
+            this.btnFillByLocalIP.Text = "IP локал";
+            this.btnFillByLocalIP.UseVisualStyleBackColor = true;
+            this.btnFillByLocalIP.Click += new System.EventHandler(this.btnFillByLocalIP_Click);
             // 
-            // rbSendByCtrlEnter
+            // txtServerPort
             // 
-            this.rbSendByCtrlEnter.AutoSize = true;
-            this.rbSendByCtrlEnter.Checked = true;
-            this.rbSendByCtrlEnter.Location = new System.Drawing.Point(33, 20);
-            this.rbSendByCtrlEnter.Name = "rbSendByCtrlEnter";
-            this.rbSendByCtrlEnter.Size = new System.Drawing.Size(71, 17);
-            this.rbSendByCtrlEnter.TabIndex = 1;
-            this.rbSendByCtrlEnter.TabStop = true;
-            this.rbSendByCtrlEnter.Text = "Ctrl+Enter";
-            this.rbSendByCtrlEnter.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.txtServerPort);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.txtServerIP);
-            this.tabPage2.Controls.Add(this.lblServerIP);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(754, 304);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Сеть";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.txtServerPort.Location = new System.Drawing.Point(72, 63);
+            this.txtServerPort.Name = "txtServerPort";
+            this.txtServerPort.Size = new System.Drawing.Size(115, 20);
+            this.txtServerPort.TabIndex = 3;
             // 
             // label2
             // 
@@ -213,33 +204,82 @@ namespace Common.AppSettings
             this.lblServerIP.TabIndex = 0;
             this.lblServerIP.Text = "Server IP";
             // 
-            // txtServerPort
+            // tabMisc
             // 
-            this.txtServerPort.Location = new System.Drawing.Point(72, 63);
-            this.txtServerPort.Name = "txtServerPort";
-            this.txtServerPort.Size = new System.Drawing.Size(115, 20);
-            this.txtServerPort.TabIndex = 3;
+            this.tabMisc.Controls.Add(this.label3);
+            this.tabMisc.Controls.Add(this.panel1);
+            this.tabMisc.Location = new System.Drawing.Point(4, 22);
+            this.tabMisc.Name = "tabMisc";
+            this.tabMisc.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMisc.Size = new System.Drawing.Size(754, 184);
+            this.tabMisc.TabIndex = 2;
+            this.tabMisc.Text = "Дополнительно";
+            this.tabMisc.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Location = new System.Drawing.Point(38, 48);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(136, 71);
+            this.panel1.TabIndex = 2;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(21, 43);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(40, 17);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.Text = "Ctrl";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(21, 20);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(71, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Ctrl+Enter";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(248, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Отправлять сообщения по комбинации клавиш";
             // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(822, 330);
             this.Controls.Add(this.pnlData);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.pnlButtons);
             this.Name = "frmSettings";
             this.Text = "Настройки";
             this.Load += new System.EventHandler(this.frmSettings_Load);
+            this.Shown += new System.EventHandler(this.frmSettings_Shown);
             this.pnlButtons.ResumeLayout(false);
             this.pnlData.ResumeLayout(false);
             this.tabs.ResumeLayout(false);
             this.tabCommon.ResumeLayout(false);
             this.tabCommon.PerformLayout();
-            this.pnlMsgSendKey.ResumeLayout(false);
-            this.pnlMsgSendKey.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabNet.ResumeLayout(false);
+            this.tabNet.PerformLayout();
+            this.tabMisc.ResumeLayout(false);
+            this.tabMisc.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,10 +292,7 @@ namespace Common.AppSettings
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage tabCommon;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel pnlMsgSendKey;
-        private System.Windows.Forms.RadioButton rbSendByCtrl;
-        private System.Windows.Forms.RadioButton rbSendByCtrlEnter;
+        private System.Windows.Forms.TabPage tabNet;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.TextBox txtServerIP;
         private System.Windows.Forms.Label lblServerIP;
@@ -263,5 +300,11 @@ namespace Common.AppSettings
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private TextBox txtServerPort;
+        private Button btnFillByLocalIP;
+        private TabPage tabMisc;
+        private Label label3;
+        private Panel panel1;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
     }
 }

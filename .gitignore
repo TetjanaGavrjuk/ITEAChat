@@ -366,3 +366,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp
+Common/Resources/dotnet-sdk-5.0.300-win-x64.exe

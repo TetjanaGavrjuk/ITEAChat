@@ -75,6 +75,8 @@ namespace Client.UI
         {
             txtUserName.Text = Globals.CurrUser.Login;
             txtServerIPAndPort.Text = Globals.CurrConnection.ServerIPWithPort;
+
+            Text = Globals.CurrUser.Login;
         }
         #endregion
 
@@ -159,22 +161,6 @@ namespace Client.UI
             utls.AppendTextToRichTextBox(txtChat, text, color, font, true);
         }
 
-         private void AddTextToChat( RichTextBox rtb, string text, Color color, Font font,  bool isNewLine = true)
-        {
-            rtb.SuspendLayout();
-            rtb.SelectionStart = rtb.TextLength;
-            rtb.SelectionLength = 0;
-
-            rtb.SelectionColor = color;
-            rtb.SelectionFont = font;
-            //rtb.SelectionBackColor = backColor;
-            rtb.AppendText(isNewLine ? $"{text}{ Environment.NewLine}" : text);
-
-            rtb.SelectionColor = rtb.ForeColor;
-            rtb.ScrollToCaret();
-            rtb.ResumeLayout();
-        }
-
         private void mnuSettings_Click(object sender, EventArgs e)
         {
             frmSettings frmSettings = new frmSettings();
@@ -183,6 +169,8 @@ namespace Client.UI
 
         private void btnServerIP_Click(object sender, EventArgs e)
         {
+            string userNameOld = userName;
+
             frmSettings frmSettings = new frmSettings();
             frmSettings.goToNet();
             frmSettings.ShowDialog(this);
@@ -191,7 +179,13 @@ namespace Client.UI
             FillScrFields();
 
             //Reconnect();   //TODO
+            if (userNameOld != userName)
+            {
+                SendMessage("#9" + userName);
 
+                //отобразим свое сообщение в окне чата
+                AddTextToChat("Сменился login  на " + userName, Color.BlueViolet);
+            }
         }
 
         #endregion

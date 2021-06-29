@@ -52,14 +52,29 @@ namespace Classes
                     try
                     {
                         message = GetMessage();
-                        message = String.Format("{0}: {1}", userName, message);
-                        InvokeAddToLog(message, Color.Black);
+
+                        string cmdCode=null;
+                        ParseMessage(message, ref cmdCode, ref message);
+
+                        if (cmdCode == "9") //смена имени пользователя
+                        {
+                            string userNameOld = userName;
+                            userName = message;
+                            message = String.Format("Пользователь сменил имя: {0} на {1}", userNameOld, message);
+                            InvokeAddToLog(message, Color.Blue);
+                        }
+                        else 
+                        { 
+                            message = String.Format("{0}: {1}", userName, message);
+                            InvokeAddToLog(message, Color.Black);
+                        }
+
                         server.BroadcastMessage(message, this.Id);
                     }
                     catch
                     {
                         message = String.Format("{0}: покинул чат", userName);
-                        InvokeAddToLog(message, Color.Yellow);
+                        InvokeAddToLog(message, Color.Brown);
                         server.BroadcastMessage(message, this.Id);
                         break;
                     }
@@ -74,6 +89,16 @@ namespace Classes
                 // в случае выхода из цикла закрываем ресурсы
                 server.RemoveConnection(this.Id);
                 Close();
+            }
+        }
+        private void ParseMessage(string inMessage, ref string outCmdCode,  ref string outMsgText) 
+        {
+            outMsgText = inMessage;
+
+            if (inMessage.Substring(0,1) == "#")
+            {
+                outCmdCode = inMessage.Substring(1, 1);
+                outMsgText = inMessage.Substring(2);
             }
         }
 
